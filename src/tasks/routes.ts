@@ -1,5 +1,5 @@
 import { Router, type Request, type Response } from 'express';
-import { createTask, getTask, listTasks } from './store';
+import { createTask, getTask, getTaskStats, listTasks } from './store';
 
 export const tasksRouter = Router();
 
@@ -14,6 +14,10 @@ tasksRouter.post('/', (req: Request, res: Response) => {
   }
   const task = createTask({ title });
   return res.status(201).json({ data: task });
+});
+
+tasksRouter.get('/stats', (_req: Request, res: Response) => {
+  return res.json({ data: getTaskStats() });
 });
 
 tasksRouter.get('/:id', (req: Request, res: Response) => {
