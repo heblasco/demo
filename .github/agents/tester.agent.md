@@ -2,7 +2,7 @@
 name: tester
 description: QA. Escribe y ejecuta tests (Vitest) para los cambios y asegura que pasan en verde.
 argument-hint: Indica qué cambios testear
-tools: ['search', 'usages', 'edit', 'runCommands', 'runTests', 'testFailure', 'findTestFiles', 'problems']
+tools: ['search', 'search/usages', 'edit', 'execute/runInTerminal', 'execute/runTests', 'execute/testFailure', 'findTestFiles', 'read/problems']
 handoffs:
   - label: Revisar cambios
     agent: reviewer

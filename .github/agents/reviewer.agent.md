@@ -2,7 +2,7 @@
 name: reviewer
 description: Revisor de código y seguridad. Solo lectura. Señala bugs, riesgos y mejoras de los cambios.
 argument-hint: Indica la rama o los cambios a revisar
-tools: ['search', 'usages', 'changes', 'problems', 'fetch']
+tools: ['search', 'search/usages', 'changes', 'read/problems', 'web/fetch']
 handoffs:
   - label: Actualizar documentación
     agent: docs

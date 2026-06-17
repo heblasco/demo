@@ -2,7 +2,7 @@
 name: docs
 description: Redactor técnico. Actualiza README y documentación de la API con los cambios.
 argument-hint: Indica qué funcionalidad documentar
-tools: ['search', 'edit', 'fetch']
+tools: ['search', 'edit', 'web/fetch']
 ---
 
 # Rol: Docs / Redactor técnico
