@@ -20,6 +20,7 @@ npm run build   # compila a dist/
 | GET    | /health     | Healthcheck            |
 | GET    | /tasks      | Lista todas las tareas |
 | POST   | /tasks      | Crea una tarea         |
+| GET    | /tasks/stats| Resumen de tareas      |
 | GET    | /tasks/:id  | Obtiene una tarea      |
 
 ### Convenciones de la API

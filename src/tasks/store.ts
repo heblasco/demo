@@ -22,6 +22,21 @@ export function getTask(id: string): Task | undefined {
   return tasks.find((task) => task.id === id);
 }
 
+export function completeTask(id: string): Task | undefined {
+  const task = getTask(id);
+  if (!task) {
+    return undefined;
+  }
+  task.status = 'done';
+  return task;
+}
+
+export function getTasksStats(): { total: number; pending: number; done: number } {
+  const total = tasks.length;
+  const done = tasks.filter((task) => task.status === 'done').length;
+  return { total, pending: total - done, done };
+}
+
 export function resetStore(): void {
   tasks.length = 0;
 }
