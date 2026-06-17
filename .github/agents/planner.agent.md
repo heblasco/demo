@@ -2,7 +2,7 @@
 name: planner
 description: Arquitecto/planificador. Investiga el repo y produce un plan de implementación detallado. Solo lectura, no edita código.
 argument-hint: Describe la funcionalidad a planificar (p.ej. "filtrar tareas por estado")
-tools: ['search', 'usages', 'githubRepo', 'fetch', 'problems']
+tools: ['search', 'search/usages', 'web/githubRepo', 'web/fetch', 'read/problems']
 handoffs:
   - label: Empezar implementación
     agent: implementer

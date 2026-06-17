@@ -2,7 +2,7 @@
 name: implementer
 description: Desarrollador. Implementa el plan en código siguiendo AGENTS.md. Puede delegar investigación a subagentes en paralelo.
 argument-hint: Pega el plan o describe qué implementar
-tools: ['search', 'usages', 'edit', 'new', 'runCommands', 'runTasks', 'problems', 'fetch', 'agent']
+tools: ['search', 'search/usages', 'edit', 'execute/runInTerminal', 'execute/runTask', 'read/problems', 'web/fetch', 'agent']
 agents: ['planner', 'reviewer']
 handoffs:
   - label: Escribir tests
