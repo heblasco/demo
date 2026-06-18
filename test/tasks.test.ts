@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import request from 'supertest';
 import { createApp } from '../src/app';
-import { resetStore } from '../src/tasks/store';
+import { resetStore, updateTaskStatus } from '../src/tasks/store';
 
 const app = createApp();
 
@@ -35,5 +35,17 @@ describe('Tasks API', () => {
     const res = await request(app).get('/tasks');
     expect(res.status).toBe(200);
     expect(res.body.data).toHaveLength(2);
+  });
+
+  it('GET /tasks/stats devuelve el recuento de tareas', async () => {
+    const taskA = await request(app).post('/tasks').send({ title: 'A' });
+    await request(app).post('/tasks').send({ title: 'B' });
+    await request(app).post('/tasks').send({ title: 'C' });
+
+    updateTaskStatus(taskA.body.data.id, 'done');
+
+    const res = await request(app).get('/tasks/stats');
+    expect(res.status).toBe(200);
+    expect(res.body).toEqual({ data: { total: 3, pending: 2, done: 1 } });
   });
 });

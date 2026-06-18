@@ -10,3 +10,9 @@ export interface Task {
 export interface CreateTaskInput {
   title: string;
 }
+
+export interface TaskStats {
+  total: number;
+  pending: number;
+  done: number;
+}

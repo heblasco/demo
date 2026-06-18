@@ -1,5 +1,5 @@
 import { randomUUID } from 'node:crypto';
-import type { CreateTaskInput, Task } from './types';
+import type { CreateTaskInput, Task, TaskStats, TaskStatus } from './types';
 
 const tasks: Task[] = [];
 
@@ -20,6 +20,30 @@ export function listTasks(): Task[] {
 
 export function getTask(id: string): Task | undefined {
   return tasks.find((task) => task.id === id);
+}
+
+export function updateTaskStatus(id: string, status: TaskStatus): Task | undefined {
+  const task = getTask(id);
+  if (!task) {
+    return undefined;
+  }
+  task.status = status;
+  return task;
+}
+
+export function getTasksStats(): TaskStats {
+  return tasks.reduce<TaskStats>(
+    (stats, task) => {
+      stats.total += 1;
+      if (task.status === 'done') {
+        stats.done += 1;
+      } else {
+        stats.pending += 1;
+      }
+      return stats;
+    },
+    { total: 0, pending: 0, done: 0 },
+  );
 }
 
 export function resetStore(): void {
